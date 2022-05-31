@@ -95,24 +95,24 @@ def order_pizza(order_no):
     pepperoni = 0
 
     # Prompt 
-    play_audio('prompt.wav')
+    play_audio('Output/prompt.wav')
 
     # Determine the Size of pizza (pequeña / mediana/ larga)
     while size not in ['pequeña', 'mediana', 'grande']:
-        play_audio('size_request.wav')
+        play_audio('Output/size_request.wav')
         # print(size_request)
-        record_audio('size_respond.wav')
-        size = speech_to_text('size_respond.wav') 
+        record_audio('Output/size_respond.wav')
+        size = speech_to_text('Output/size_respond.wav') 
         print(f'Size: {size}')
         if size not in ['pequeña', 'mediana', 'grande']:
-            play_audio('repeat.wav')
+            play_audio('Output/repeat.wav')
         
     # Determine pepperoni (si/no)
     while pepperoni not in ['si', 'no']:
-        play_audio('pepperoni_request.wav')
+        play_audio('Output/pepperoni_request.wav')
         # print(pepperoni_request)
-        record_audio('pepperoni_respond.wav')
-        pepperoni = speech_to_text('pepperoni_respond.wav')
+        record_audio('Output/pepperoni_respond.wav')
+        pepperoni = speech_to_text('Output/pepperoni_respond.wav')
         print(f'Pepperoni: {pepperoni}')
         if pepperoni == 'si':
             pepperoni_pref = 'con'
@@ -122,24 +122,24 @@ def order_pizza(order_no):
             pepperoni = 0
     
         if pepperoni == 0:
-            play_audio('repeat.wav')                                                                
+            play_audio('Output/repeat.wav')                                                                
     
     # Repeating the order
     order = 'Pediste pizza ' + size + ' ' + pepperoni_pref + ' pepperoni.'
     print(f'No. {order_no}: {size.upper()} {pepperoni_pref.upper()} pepperoni.')
-    text_to_speech(order, 'order.wav')
-    play_audio('order.wav')
+    text_to_speech(order, 'Output/order.wav')
+    play_audio('Output/order.wav')
 
     
 # Step 1 Prepare audio for the bot via TTS service  
 prompt = '¡Buenos días, bienvenido a Robo-Pizza! Vamos a hacer el pedido.'
-text_to_speech(prompt, 'prompt.wav')
+text_to_speech(prompt, 'Output/prompt.wav')
 repeat = 'Perdona, no entiendo. Por favor, dime otra vez'
-text_to_speech(repeat, 'repeat.wav')
+text_to_speech(repeat, 'Output/repeat.wav')
 size_request = '¿Que tamaño de pizza prefieres - pequeña, mediana o grande?'
-text_to_speech(size_request, 'size_request.wav')
+text_to_speech(size_request, 'Output/size_request.wav')
 pepperoni_request = '¿Ponemos pepperoni, sí o no?'
-text_to_speech(pepperoni_request, 'pepperoni_request.wav')
+text_to_speech(pepperoni_request, 'Output/pepperoni_request.wav')
 
 #Step 2 Ordering
 status = input('ENTER to order, "q" to Quit ')
