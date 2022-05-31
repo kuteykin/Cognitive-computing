@@ -15,11 +15,11 @@ def run_translator():
     spanish_prompt_en_es = translate(text_to_translate=english_prompt_en_es, model='en-es')
     print(english_prompt_en_es)
     input(spanish_prompt_en_es)
-    record_audio('english.wav')
+    record_audio('Output/english.wav')
 
     # Step 2: Transcribe the English speech to English text
     english = speech_to_text(
-        file_name='english.wav', model_id='en-US_BroadbandModel')
+        file_name='Output/english.wav', model_id='en-US_BroadbandModel')
     print('English:', english)
 
     # Step 3: Translate the English text into Spanish text
@@ -28,21 +28,21 @@ def run_translator():
 
     # Step 4: Synthesize the Spanish text into Spanish speech
     text_to_speech(text_to_speak=spanish, 
-        voice_to_use='es-US_SofiaVoice', file_name='spanish.wav')
+        voice_to_use='es-US_SofiaVoice', file_name='Output/spanish.wav')
 
     # Step 5: Play the Spanish audio file
-    play_audio(file_name='spanish.wav')
+    play_audio(file_name='Output/spanish.wav')
 
     # Step 6: Prompt for then record Spanish speech into an audio file
     english_prompt_es_en = 'Press Enter then speak the Spanish answer'
     spanish_prompt_es_en = translate(text_to_translate=english_prompt_es_en, model='en-es')
     print(english_prompt_es_en)
     input(spanish_prompt_es_en)
-    record_audio('spanishresponse.wav')
+    record_audio('Output/spanishresponse.wav')
 
     # Step 7: Transcribe the Spanish speech to Spanish text
     spanish = speech_to_text(
-        file_name='spanishresponse.wav', model_id='es-ES_BroadbandModel')
+        file_name='Output/spanishresponse.wav', model_id='es-ES_BroadbandModel')
     print('Spanish response:', spanish)
 
     # Step 8: Translate the Spanish text into English text
@@ -52,10 +52,10 @@ def run_translator():
     # Step 9: Synthesize the English text into English speech
     text_to_speech(text_to_speak=english,
         voice_to_use='en-US_AllisonVoice',
-        file_name='englishresponse.wav')
+        file_name='Output/englishresponse.wav')
 
     # Step 10: Play the English audio
-    play_audio(file_name='englishresponse.wav')
+    play_audio(file_name='Output/englishresponse.wav')
 
 def speech_to_text(file_name, model_id):
     """Use Watson Speech to Text to convert audio file to text."""
