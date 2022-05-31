@@ -157,5 +157,5 @@ def play_audio(file_name):
     sound = pydub.AudioSegment.from_wav(file_name)
     pydub.playback.play(sound)
 
-#if __name__ == '__main__':  # this is not needed in a notebook
+#if __name__ == '__main__': 
 run_translator()
