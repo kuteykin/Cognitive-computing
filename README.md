@@ -4,4 +4,4 @@
 
 **order_pizza_es.py**    Python Pizza Parlor (using IBM Watson services)
 
-**language_translator_app.py**   Language Translator App (using IBM Watson services) *to be finished
+**language_translator_app.py**  Translator for speech conversation: repeated speech recognition / translation using IBM Watson services (for the moment  for Spanish <-> English)  *to be finished
